@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    <entry>
+      <title>多线程</title>
+      <url>/ios/2018/04/25/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+      <content type="text">
+  概述
+
+
+iOS有四套多线程解决方案
+
+  Pthreads
+  NSThread
+  GCD
+  NSOperation &amp;amp; NSOperationQueue
+
+
+
+  Pthreads
+
+
+POSIX threads简称Pthreads
+
+NSThread
+这套方案是经过苹果封装后的，并且完全面向对象的。它的生命周期还是需要我们手动管理。
+
+
+  GCD
+
+
+简介
+Grand Central Dispatch
+优点
+
+  自动合理地利用更多的CPU内核
+  自动管理线程的生命周期（创建线程、调度任务、销毁线程）
+  使用的是c语言，不过由于使用了 Block（Swift里叫做闭包），使得使用起来更加方便，而且灵活。
+
+
+任务和队列(Task &amp;amp; Queue)
+任务：同步执行，异步执行
+
+  同步执行：不开启新线程
+  异步执行：开启新线程
+
+
+队列：串行，并行，一系列任务的排列方式
+
+
+  串行：FIFO，一个任务接一个任务取出队列执行(完成一个任务再完成下一个)
+  并行：队列里的多个任务同时执行，要实现并行需要新线程支撑
+
+
+创建队列和线程
+
+  系统提供两个标准队列
+    dispatch_get_global_queue()
+dispatch_get_main_queue()
+
+    
+  
+  创建队列
+    dispatch_queue_create(&quot;com.demo.serialQueue&quot;, DISPATCH_QUEUE_SERIAL)
+dispatch_queue_create(&quot;com.demo.concurrentQueue&quot;, DISPATCH_QUEUE_CONCURRENT)
+
+    
+  
+  创建线程
+    dispatch_sync(queue, ^(block))  // 同步线程
+dispatch_async(queue, ^(block)) // 异步线程
+
+    
+  
+
+
+
+  NSOperation &amp;amp; NSOperation Queue
+
+
+NSOperation 是苹果公司对 GCD 的封装，完全面向对象.操作步骤
+
+  将要执行的任务封装到一个 NSOperation 对象中。
+  将此任务添加到一个 NSOperationQueue 对象中。
+
+</content>
+      <categories>
+        
+          <category> iOS </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> 多线程 </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title>视图显示导论</title>
+      <url>/ios/2018/04/23/An-Introduction-To-View-Display/</url>
+      <content type="text">显示器原理
+
+绘制像素
+
+视图类
+
+视图优化
+
+检测工具
+</content>
+      <categories>
+        
+          <category> iOS </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> UIView, </tag>
+        
+          <tag> 优化 </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title>这是第一篇文章</title>
+      <url>/2018/04/18/firstarticle/</url>
+      <content type="text">This is my first article
+
+这是第一篇文章
+
+</content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
+      <title>这是第一篇草稿</title>
+      <url>/2018/04/18/draft_test/</url>
+      <content type="text">This is a Draft
+
+my first draft text
+</content>
+      <categories>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+</search>
